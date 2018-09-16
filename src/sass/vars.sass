@@ -1,0 +1,21 @@
+.grid
+  display: grid
+  grid-template-columns: 100px auto
+   
+//colors
+$magenta: #F90094
+$mint: #05E8BC
+$black: #333
+// TYPE
+$main-font: Raleway, sans-serif
+
+
+//:root
+  --color-one: $magenta
+  --color-two: $mint
+
+// Mixins
+// square it up
+@mixin sq($n)
+  width: $n
+  height: $n
