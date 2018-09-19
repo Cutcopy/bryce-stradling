@@ -15,7 +15,7 @@
           .switcher
              img(src="../assets/swap-arrows.svg" id="switcher" @click="swapColors")
           .pallete.bg
-            input(id="pallete1" type="color" name="" @change="$store.commit('setRange', 0)" @click="$store.commit('setRange', 0)" v-model="colors.background")
+            input(id="pallete1" type="color" name="" v-model="colors.background")
           .pallete.fg
             input(id="pallete2" type="color" name="" v-model="colors.forground")
         .line
@@ -40,7 +40,6 @@ export default {
       let forground = this.colors.forground;
       this.colors.background = forground;
       this.colors.forground = background;
-      this.$store.commit('setRange', 0)
     }
   }
 }

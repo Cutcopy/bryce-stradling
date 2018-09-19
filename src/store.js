@@ -15,10 +15,8 @@ export default new Vuex.Store({
   },
   getters: {
     getColors: state => state.colors,
-    getRange: state => state.range,
   },
   mutations: {
-    setRange: (state, options) => state.range = options
   },
   actions: {
 
