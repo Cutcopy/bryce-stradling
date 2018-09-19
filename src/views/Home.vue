@@ -19,8 +19,8 @@ export default {
   data() {
     return {
       percent: 0,
-      background: '#00ffc2',
-      gradient: 'linear-gradient(45deg, transparent 100%, #00ffc2 0%',
+      background: null,
+      gradient: null,
       timer: null,
     }
   },
@@ -28,6 +28,10 @@ export default {
     ...mapGetters({
       colors: 'getColors',
     })
+  },
+  created() {
+    this.background = this.colors.background;
+    this.gradient = `linear-gradient(45deg, transparent 100%, ${this.colors.background} 0%`;
   },
   watch: {
     'colors.background': {
