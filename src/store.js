@@ -8,13 +8,15 @@ export default new Vuex.Store({
     colors: {
       background: '#00ffc2',
       forground: '#ff003d',
-    }
+      backgroundOld: '#00ffc2',
+      forgroundOld: '#ff003d'
+    },
+    range: 0,
   },
   getters: {
-    getColors: state => state.colors
+    getColors: state => state.colors,
   },
   mutations: {
-
   },
   actions: {
 
