@@ -1,70 +1,72 @@
 <template lang="pug">
-  main.content(:style="{'background': background}")
-    div.gradient(:style="{'background': gradient}")
-      .hero
-        .big-logo
-          //include ../../dist/img/logo_jet.svg
-        .big-text
-          h1 Bryce Stradling
-          h2 Designer
-      nav.ctas
-        a.btn(href="#") Resume
-        a.btn(href="#") Portfolio
+  main
+    .content(:style="{'background': background}")
+      .gradient(:style="{'background': gradient}")
+        .hero
+          .big-logo
+            //include ../../dist/img/logo_jet.svg
+          .big-text
+            h1 Bryce Stradling
+            h2 Designer
+        nav.ctas
+          a.btn(href="#") Resume
+          a.btn(href="#") Portfolio
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 export default {
   name: 'home',
-  data() {
+  data () {
     return {
       percent: 0,
       background: null,
       gradient: null,
-      timer: null,
+      timer: null
     }
   },
   computed: {
     ...mapGetters({
-      colors: 'getColors',
+      colors: 'getColors'
     })
   },
-  created() {
-    this.background = this.colors.background;
-    this.gradient = `linear-gradient(45deg, transparent 100%, ${this.colors.background} 0%`;
+  created () {
+    this.background = this.colors.background
+    this.gradient = `linear-gradient(45deg, transparent 100%, ${this.colors.background} 0%`
   },
   watch: {
     'colors.background': {
-      handler: function(){
-        this.background = this.colors.background;
-        this.percent = 0;
-        clearTimeout(wait);
+      handler: function () {
+        this.background = this.colors.background
+        this.percent = 0
+        clearTimeout(wait)
         let wait = setTimeout(() => {
-          clearInterval( this.timer );
-          this.fadeBackground();
-      }, 50)
-      }, deep: true
+          clearInterval(this.timer)
+          this.fadeBackground()
+        }, 50)
+      },
+      deep: true
     }
   },
   methods: {
-    fadeBackground(){
-      this.percent = 0;
-      let duration = 0;
-      let lastFrame = +new Date;
+    fadeBackground () {
+      this.percent = 0
+      let duration = 0
+      let lastFrame = +new Date()
       this.timer = setInterval(() => {
-        let now = +new Date;
-        let deltaT = now - lastFrame;
-        this.percent = Math.ceil( duration += 5 * deltaT / 50 );
-        lastFrame = now;
-        this.gradient = `linear-gradient(45deg, transparent ${this.percent}%, ${this.colors.backgroundOld}) ${100 - this.percent}%`;
-  
-        if ( this.percent > 99 ) {
-          this.colors.backgroundOld = this.colors.background;
-          this.percent = 0;
-          clearInterval( this.timer );
+        let now = +new Date()
+        let deltaT = now - lastFrame
+        this.percent = Math.ceil(duration += 5 * deltaT / 50)
+        lastFrame = now
+        this.gradient = `linear-gradient(45deg, transparent ${this.percent}%, ${this.colors.backgroundOld}) ${100 - this.percent}%`
+
+        if (this.percent > 99) {
+          this.colors.backgroundOld = this.colors.background
+          this.percent = 0
+          clearInterval(this.timer)
         }
-      }, 25);
-    },
+      }, 25)
+    }
   }
 }
 </script>
@@ -84,6 +86,8 @@ export default {
   align-items: center
   justify-content: center
   transition: .3s linear all
+  width: 100%
+  height: 100%
 .hero
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.25))
   text-transform: uppercase
@@ -92,6 +96,8 @@ export default {
   align-items: center
   justify-content: center
   text-align: center
+  color: white
+  mix-blend-mode: difference
 .big-logo
   fill: $black
   max-width: 33%

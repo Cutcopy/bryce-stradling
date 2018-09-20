@@ -9,7 +9,7 @@
         .links
             router-link(to="/") Home
             router-link(to="/about") About
-            router-link(to="/gallery") Work
+            router-link(to="/gallery") Gallery
             router-link(to="/contact") Contact
         .flair
           .switcher

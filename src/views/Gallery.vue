@@ -1,10 +1,11 @@
 <template lang="pug">
-    h1 Gallery
+    main
+        h1 Gallery
 </template>
 <script>
-    export default {
+export default {
 
-    }
+}
 </script>
 <style lang="sass">
 @import '../sass/vars'
