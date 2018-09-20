@@ -9,7 +9,7 @@
         .links
             router-link(to="/") Home
             router-link(to="/about") About
-            router-link(to="/gallery") Gallery
+            router-link(to="/work") Work
             router-link(to="/contact") Contact
         .flair
           .switcher
@@ -23,7 +23,7 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  data(){
+  data() {
     return {
 
     }

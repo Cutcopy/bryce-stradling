@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home'
 import About from './views/About'
-import Gallery from './views/Gallery'
+import Work from './views/Work'
 import Contact from './views/Contact'
 
 Vue.use(Router)
@@ -22,9 +22,9 @@ export default new Router({
       component: About
     },
     {
-      path: '/gallery',
-      name: 'gallery',
-      component: Gallery
+      path: '/work',
+      name: 'work',
+      component: Work
     },
     {
       path: '/contact',
