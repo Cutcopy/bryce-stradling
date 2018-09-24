@@ -1,7 +1,7 @@
 <template lang="pug">
   main
+    .gradient(:style="{'background': gradient}")
     .content(:style="{'background': background}")
-      .gradient(:style="{'background': gradient}")
         .hero
           .big-logo
             svg(id="big-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000")
@@ -42,8 +42,9 @@ export default {
       handler: function () {
         this.background = this.colors.background
         this.percent = 0
+        let wait = null
         clearTimeout(wait)
-        let wait = setTimeout(() => {
+        wait = setTimeout(() => {
           clearInterval(this.timer)
           this.fadeBackground()
         }, 50)
@@ -81,9 +82,9 @@ export default {
   left: 0
   right: 0
   bottom: 0
+  z-index: 1
 .content
   position: relative
-  background: url(https://fillmurray.com/2000/2000)
   display: flex
   flex-direction: column
   align-items: center
@@ -100,7 +101,6 @@ export default {
   justify-content: center
   text-align: center
   color: white
-  //mix-blend-mode: difference
 .big-logo
   margin-top: 1em
   width: 100%

@@ -1,5 +1,5 @@
 <template lang="pug">
-    main#Gallery
+    main#Gallery(:style="{'background-image': gradient()}")
         #Work-grid
             - for (var x = 1; x < 20; x++)
                 .work-item
@@ -7,15 +7,41 @@
 
 </template>
 <script>
-    export default {
-
+import { mapGetters } from 'vuex'
+export default {
+  data () {
+    return {
+      background: null,
+      forground: null,
     }
+  },
+  computed: {
+    ...mapGetters({
+      colors: 'getColors'
+    })
+  },
+  watch: {
+    colors: {
+      handler: function() {
+        this.background = this.colors.background
+        this.forground = this.colors.forground
+      },
+      deep: true
+    }
+  },
+  created() {
+    this.background = this.colors.background
+    this.forground = this.colors.forground
+  },
+  methods: {
+    gradient() { return `linear-gradient(235.55deg, ${this.background} 0%, ${this.forground} 93.78%)`}
+  }
+}
 </script>
 <style lang="sass">
 @import '../sass/vars'
 
 #Gallery
-  background-image: linear-gradient(235.55deg, #F7E219 0%, #F90094 93.78%)
   display: flex
   align-items: center
   justify-content: center

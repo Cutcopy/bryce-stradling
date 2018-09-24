@@ -1,8 +1,9 @@
 <template lang="pug">
   main#Contact
+    contact-background
     #Contact-content
       .title
-        h1 Contact
+        h1(:style="{'background': colors.forground}") Contact
       form#contactForm
         h2.c-header DEAR BRYCE
         fieldset
@@ -12,21 +13,26 @@
           label you can reach me at
           input(type="email" placeholder="(Email)")
         textarea(name="message", cols="30", rows="10" placeholder="myWord(I do Declare);")
-        input(type="submit" value="send")
+        input(type="submit" value="send" :style="{'background': colors.forground}")
 
 </template>
 <script>
-    export default {
-
-    }
+import { mapGetters } from 'vuex'
+import ContactBackground from '../components/ContactBackground'
+export default {
+  components: {
+    'contact-background': ContactBackground
+  },
+  computed: {
+    ...mapGetters({
+      colors: 'getColors'
+    })
+  }
+}
 </script>
 <style lang="sass" scoped>
 @import '../sass/vars'
-
-// CONTACT Page
-
 #Contact
-  background: url(../assets/contact-bg.svg)
   background-size: cover
   height: 100vh
   display: flex
@@ -105,5 +111,6 @@
     text-transform: uppercase
     font-size: 1.5em
     width: 100%
+    transition: 0.1s ease-out
 
 </style>
