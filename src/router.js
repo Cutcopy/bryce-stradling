@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import About from './views/About'
 import Work from './views/Work'
+import WorkItem from './views/WorkItem'
 import Contact from './views/Contact'
 
 Vue.use(Router)
@@ -25,6 +26,11 @@ export default new Router({
       path: '/work',
       name: 'work',
       component: Work
+    },
+    {
+      path: '/workitem',
+      name: 'workitem',
+      component: WorkItem
     },
     {
       path: '/contact',

@@ -23,7 +23,7 @@
       .mugshot
 </template>
 <script>
-import AboutBackground from '../components/AboutBackground' 
+import AboutBackground from '../components/AboutBackground'
 export default {
   components: {
     'about-background': AboutBackground

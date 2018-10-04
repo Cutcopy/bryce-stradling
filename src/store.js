@@ -13,7 +13,7 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getColors: state => state.colors,
+    getColors: state => state.colors
   },
   mutations: {
   }
