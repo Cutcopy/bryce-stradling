@@ -30,15 +30,14 @@ export default {
       deep: true
     }
   },
-  created() {
+  created () {
     this.background = this.colors.background
     this.forground = this.colors.forground
   },
   methods: {
-    gradient() { return `linear-gradient(235.55deg, ${this.background} 0%, ${this.forground} 93.78%)`}
+    gradient () { return `linear-gradient(235.55deg, ${this.background} 0%, ${this.forground} 93.78%)`}
   }
 }
-export default {}
 </script>
 <style lang="sass">
 @import '../sass/vars'
