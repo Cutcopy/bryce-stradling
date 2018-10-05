@@ -54,7 +54,7 @@ export default {
   align-items: center
   justify-content: space-between
   writing-mode: vertical-rl
-
+  
 .logo
   svg
     width: 50px

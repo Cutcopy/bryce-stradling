@@ -27,6 +27,7 @@
 <script>
 import AboutBackground from '../components/AboutBackground'
 import { mapGetters } from 'vuex'
+
 export default {
   components: {
     'about-background': AboutBackground
