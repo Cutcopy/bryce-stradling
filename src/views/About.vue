@@ -3,7 +3,7 @@
     about-background
     #about-content
       .title
-        h1 SEE WHAT YOU THINK
+        h1(:style="{'background': colors.forground}") SEE WHAT YOU THINK
       .bio
         .socials
           a(href="/")
@@ -20,13 +20,27 @@
           p I believe design, coding, and engineering are all creative endeavors we must engage to solve the thorniest problems. While my contemporaries may talk of the need to narrowly specialize in a profession, they are misguided. A narrow skill-set might make them more categorizable, and perhaps easier to place in a job (for now). But the landscape re-shapes itself constantly. All skill and experience must be drawn on to find elegant and creative solutions—and the wider the knowledge terrain, the better the solution.
 
           p For example, my experience as a musician made video editing easier, allowing me to draw on my skills in timing, arrangement, and experimentation. The Animations I made in After Effects influenced my work designing user interfaces. See for yourself on this site. Feel free to shoot me an email if you'd like to work together or find something that inspires you.
-      .mugshot
+      .mugshot-container
+        .mugshot-gradient(:style="{'background-image': mugshotGradient()}")
+        .mugshot
 </template>
 <script>
 import AboutBackground from '../components/AboutBackground'
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     'about-background': AboutBackground
+  },
+  computed: {
+    ...mapGetters({
+      colors: 'getColors'
+    })
+  },
+  methods: {
+    mugshotGradient () {
+      return `linear-gradient(180deg, ${this.colors.forground} 0%, ${this.colors.background} 100%)`
+    }
   }
 }
 </script>
@@ -54,6 +68,7 @@ export default {
     background: $magenta
     padding: 10px
     border: 10px solid white
+    transition: .5s ease all
 
 .bio
   background: white
@@ -70,12 +85,37 @@ export default {
   svg
     +sq(3em)
 
-.mugshot
+.mugshot-container
   width: 100%
+  height: 100%
   grid-row: 2 / span 10
   grid-column: 12 / span 13
   border: 10px solid white
-  background-image: linear-gradient(180deg, #F90094 0%, #05E8BC 100%), url(../assets/Portrait.png)
+  position: relative
+  z-index: -1
+.mugshot
+  z-index: -3
+  width: 100%
+  height: 100%
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  background-image: url(../assets/Portrait.png)
+  background-blend-mode: overlay, normal
+  background-repeat: no-repeat
+  background-size: cover
+.mugshot-gradient
+  z-index: -2
+  width: 100%
+  height: 100%
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  opacity: .5
   background-blend-mode: overlay, normal
   background-repeat: no-repeat
   background-size: cover

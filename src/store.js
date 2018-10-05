@@ -7,9 +7,9 @@ export default new Vuex.Store({
   state: {
     colors: {
       background: '#00ffc2',
-      forground: '#ff003d',
+      forground: '#E53592',
       backgroundOld: '#00ffc2',
-      forgroundOld: '#ff003d'
+      forgroundOld: '#E53592'
     }
   },
   getters: {
